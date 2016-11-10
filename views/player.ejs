@@ -1,0 +1,74 @@
+<% layout("layout/page-project") -%>
+<% block("title", "Музыкальный проигрыватель") -%>
+<% block("navigation", "player") -%>
+<% stylesheet("/css/style-player-current.css") -%>
+<% stylesheet("/css/style-player-context-menu.css") -%>
+<% stylesheet("/css/style-player-form.css") -%>
+<% script("/js/script-player.js") -%>
+<% script("/js/script-player-context-menu.js") -%>
+
+<h2>Музыкальный проигрыватель</h2>
+<div class="player-background">
+	<div class="player">
+		<div id="current-cover" class="cover">
+			<% if (songs.length === 0) { %>
+				<img src="/images/Eurythmics-Sweet-Dreams-Are-Made-Of-This-Lyrics.jpg" alt="Cover">
+			<% } else { %>
+				<img src="" alt="Cover">
+			<% } %>
+		</div>
+		<% if (songs.length === 0) { %>
+		<div class="track-info">
+			<p id="track-title" class="text bold">Sweet Dreams</p>
+			<p id="track-album" class="text"><span class="light">Album - </span><span class="bold">Sweet Dreams (Are Made of This)</span></p>
+			<p id="track-artist" class="text"><span class="light">Artist - </span><span class="bold">Eurythmics</span></p>
+		</div>
+		<% } else { %>
+			<div class="track-info">
+				<p id="track-title" class="text bold"><%= songs[0].title %></p>
+				<p id="track-album" class="text"><span class="light">Album - </span><span class="bold"><%= songs[0].album %></span></p>
+				<p id="track-artist" class="text"><span class="light">Artist - </span><span class="bold"><%= songs[0].artist %></span></p>
+			</div>
+		<% } %>
+		<div class="player-time-line">
+			<audio name="media" id="audio">
+				<source src="/music/Eurythmics - Sweet Dreams.mp3" type="audio/mp3">
+			</audio>
+			<span id="current-time" class="text">00:00</span>
+			<div class="time-line">
+				<div class="progress-background"></div>
+				<div class="progress-download"></div>
+				<div class="progress-play"></div>
+			</div>
+			<span id="all-time" class="text">03:31</span>
+		</div>
+		<div class="player-control">
+			<button id="prev-track" class="control-player-button">&#x2759;&#9668;</button>
+			<button id="play-track" class="control-player-button">&#9658;</button>
+			<button id="next-track" class="control-player-button">&#9658;&#x2759;</button>
+			<button id="loop-track" class="control-player-button">&#8634;</button>
+			<button id="volume-track" class="control-player-button">vol</button>
+			<div id="volume-bar" class="volume-line">
+				<div class="volume-background"></div>
+				<div class="volume-progress"></div>
+			</div>
+		</div>
+		<div class="list" <% if (idPlaylist !== "") { %> data-id-playlist="<%= idPlaylist %>" <% } %>>
+			<% if (songs.length === 0) { %>
+				<div class="list-item playing" data-src-track="Eurythmics - Sweet Dreams.mp3" data-title="Eurythmics - Sweet Dreams.mp3" data-album="Sweet Dreams (Are Made of This)" data-artist="Eurythmics" data-context-menu="true">
+					<span class="play-list-star">&#10026;</span>
+					<p class="text song-info">Sweet Dreams <span class="light">Singers - </span>Eurythmics</p>
+					<span class="text bold">03:31</span>
+				</div>
+			<% } %>
+			<% songs.forEach(function(song, i) { %>
+				<div class="list-item <% if (i === 0) { %> playing <% } %>" data-id-song="<%= song._id %>" data-src-track="<%= song.name %>" data-title="<%= song.title %>" data-album="<%= song.album %>" data-artist="<%= song.artist %>" data-context-menu="true">
+					<span class="play-list-star">&#10026;</span>
+					<p class="text song-info"><%= song.title %> <span class="light">Singers - </span><%= song.artist %></p>
+					<span class="text bold"><%= song.time %></span>
+				</div>
+			<% }); %>
+		</div>
+	</div>
+</div>
+<%- partial("partials/context-menu-player") %>

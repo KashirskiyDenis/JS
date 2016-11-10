@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title><%=blocks.title%></title>
+		<%- partial("../partials/head-main") %>
+	</head>
+	<body>
+		<header class="page-header">
+			<div class="container">
+				<a href="/">
+					<h1 class="logotype">Вместо header`а</h1>
+				</a>
+			</div>
+		</header>
+		<main>
+			<div class="container">
+				<%- body -%>
+			</div>
+		</main>
+		<footer class="page-footer">
+			<div class="container">
+				<%- partial("../partials/footer") -%>
+			</div>
+		</footer>
+	</body>
+</html>

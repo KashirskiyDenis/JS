@@ -1,0 +1,108 @@
+<% layout("layout/page-project") -%>
+<% block("title", "Музыкальный проигрыватель - плейлисты") -%>
+<% block("navigation", "player") -%>
+<% stylesheet("/css/style-player-playlist.css") -%>
+<% if (all.length !== 0) {
+	stylesheet("/css/style-player-context-menu.css")
+	stylesheet("/css/style-player-form.css")
+	script("/js/script-player-context-menu.js")
+} -%>
+<h2>Плейлисты</h2>
+<div class="player-background">
+	<div class="player">
+		<div>
+			<ul class="navigation-menu">
+				<li class="navigation-menu-item">
+					<a href="/player/playlists/albums"
+					<% if ("albums" === pl) { %>
+						class="current-page"
+					<% } %>>
+						<span>Альбомы</span>
+					</a>
+				</li>
+				<li class="navigation-menu-item">
+					<a href="/player/playlists/artists"
+					<% if ("artists" === pl) { %>
+						class="current-page"
+					<% } %>>
+						<span>Исполнители</span>
+					</a>
+				</li>
+				<li class="navigation-menu-item">
+					<a href="/player/playlists/personal"
+					<% if ("personal" === pl) { %>
+						class="current-page"
+					<% } %>>
+						<span>Персональные</span>
+					</a>
+					</li>
+				<li class="navigation-menu-item">
+					<a href="/player/playlists/all"
+					<% if ("all" === pl) { %>
+						class="current-page"
+					<% } %>>
+						<span>Все композиции</span>
+					</a>
+				</li>				
+			</ul>
+		</div>
+
+		<div class="list">
+			<% if (albums.length !== 0) {
+				albums.forEach(function(value, key) { %>
+				<a href="/player/current/album?value=<%= encodeURIComponent(key) %>">
+					<div class="list-item">
+						<p class="text bold"><%= key %></p>
+						<p class="text light"><%= value.artist %></p>
+					</div>
+				</a>
+				<% });
+			} else if (artists.length !== 0) {
+				artists.forEach(function(value, key) { %>
+				<div class="accordion-item">
+					<input type="checkbox" id="<%= key %>" checked />
+					<label for="<%= key %>"><span class="text"><%= key %></span></label>
+					<div class="content">
+						<% value.forEach(function(value, key) { %>
+							<a href="/player/current/album?value=<%= key === "" ? "Without album" : encodeURIComponent(key) %>">
+								<div class="list-item">
+									<p class="text bold"><%= key === "" ? "Without album" : key %></p>
+									<p class="text light">Композиций: <%= value %></p>
+								</div>
+							</a>
+						<% }); %>
+					</div>
+				</div>
+				<% });
+			} else if (personal.length !== 0) {
+				personal.forEach(function(value) { %>
+				<a href="/player/current/playlist?value=<%= value._id %>">
+					<div class="list-item">
+						<p class="text bold"><%= value.title %></p>
+						<p class="text light">Композиций: <%= value.songs.length %></p>
+					</div>
+				</a>
+				<% });
+			} else if (all.length !== 0) { 
+				all.forEach(function(value) { %>
+				<a href="/player/current/song?value=<%= value._id %>">
+					<div class="list-item" data-id-song="<%= value._id %>" data-context-menu="true">
+						<p class="text bold"><%= value.title %></p>
+						<p class="text light"><%= value.artist %></p>
+					</div>
+				</a>
+				<% });			
+			} %>
+		</div>
+		<% if ("personal" === pl) { %>
+			<a href="/player/playlists/personal/add">
+				<p class="text no-margin-bottom">
+					<span>Редактировать</span>
+				</p>
+			</a>
+		<% } %>
+	</div>
+</div>
+<% if (all.length !== 0) { %>
+	<%- partial("partials/context-menu-player") -%>
+<% } %>

@@ -1,0 +1,45 @@
+<nav class="project-navigation">
+	<ul class="navigation-menu">
+		<li class="navigation-menu-item">
+			<a href="/player/current"
+				<% if ("/player/current" === path) { %>
+					class="current-page"
+				<% } %>>
+				<span>Сейчас</span>
+			</a>
+		</li>
+		<li class="navigation-menu-item">
+			<a href="/player/playlists"
+				<% if ("/player/playlists" === path) { %>
+					class="current-page"
+				<% } %>>
+				<span>Плейлисты</span>
+			</a>
+		</li>
+		<li class="navigation-menu-item">
+			<a href="/player/add"
+				<% if ("/player/add" === path) { %>
+					class="current-page"
+				<% } %>>
+				<span>Добавить</span>
+			</a>
+		</li>
+		<li class="navigation-menu-item">
+			<a href="/player/about"
+				<% if ("/player/about" === path) { %>
+					class="current-page"
+				<% } %>>
+				<span>О плеере</span>
+			</a>
+		</li>
+	</ul>
+	<% if (user) { %>
+		<form method="POST" action="/player/logout">
+			<input type="submit" id="exit" value="Выйти">
+		</form>
+	<% } else { %>
+		<a id="exit" href="/player/login">
+			<span>Войти</span>
+		</a>
+	<% } %>
+</nav>

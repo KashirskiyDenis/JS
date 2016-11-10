@@ -1,0 +1,63 @@
+﻿/* Основные стили */
+.player-background {
+	padding: 100px;
+	background-color: #ffdf8c;
+}
+.player {
+	background-color: #fff;
+    padding: 25px;
+    box-shadow: 0px 35px 90px 0px rgba(50, 10, 10, 0.125);
+	text-align: center;
+}
+/* Основные стили. Для текста */
+.text {
+	font-size: 1.5rem;
+	color: #505050;
+}
+.bold {
+	font-weight: bold;
+}
+.light {
+	color: #8c8c8c;
+}
+/* Основные стили. Элементы списка */
+.list-item {
+	text-align: left;
+	font-size: 1.5rem;
+	position: relative;
+	padding: 0.1px 10px;
+	border: 1px solid transparent;
+}
+.list-item:hover {
+	box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.list-item > * {
+	vertical-align: middle;
+}
+
+/* Кнопка Выход */
+#exit {
+	color: #0000ee;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline;
+    font-family: Arial;
+    font-size: 2rem;
+    width: auto;
+    background: none;
+    box-shadow: none;
+    padding: 0px;
+	border: none;
+}
+#exit:hover {
+	color: #03a9f4;
+}
+#exit:focus {
+	outline-style: none;
+	color: #03a9f4;
+}
+#exit:active {
+	margin-right: 0px; 
+	transform: none;
+}

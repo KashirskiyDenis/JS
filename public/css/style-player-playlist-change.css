@@ -1,0 +1,19 @@
+﻿.player {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 555px;
+    align-content: space-between;
+	justify-content: space-between;
+}
+.player > div {
+	height: 280px;
+	overflow-y: auto;
+}
+.player > div:first-child {
+	height: auto;
+}
+.player > div:last-child {
+	align-self: flex-end;
+	height: calc(100% - 20px);
+}

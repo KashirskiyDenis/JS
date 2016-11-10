@@ -1,0 +1,32 @@
+﻿.accordion-item [type=checkbox] {
+	display: none;
+}
+.accordion-item label {
+	display: block;
+	background-color: #03a9f4;
+	padding: 10px 15px;
+	box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2);
+	margin-top: 5px;
+}
+.accordion-item label:active {
+	transform: translate(5px, 5px);
+	box-shadow: none;
+	width: calc(100% - 35px);
+}
+.accordion-item label span {
+	color: #fff;
+}
+.accordion-item label:first-child {
+	margin-bottom: 0px;
+}
+.accordion-item label:hover {
+    color: #fff;
+    background-color: #f87c48;
+}
+.accordion-item .content {
+    overflow: hidden;
+	box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2);
+}
+.accordion-item [type=checkbox]:checked ~ .content {
+    height: 0px;
+}

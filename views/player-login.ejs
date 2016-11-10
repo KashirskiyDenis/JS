@@ -1,0 +1,32 @@
+<% layout("layout/page-project") -%>
+<% block("title", "Музыкальный проигрыватель - Вход в систему") -%>
+<% block("navigation", "player") -%>
+<% stylesheet("/css/style-player-add.css") -%>
+<% stylesheet("/css/style-player-form.css") -%>
+
+<h2>Вход в систему</h2>
+<div class="player-background">
+	<div class="player">
+		<div>
+			<form class="player-add-form" action="/player/login" method="POST">
+				<div class="form-group" for="login">
+					<label>Логин</label>
+					<input type="text" id="login" name="login">
+				</div>
+				<div class="form-group" for="password">
+					<label>Пароль</label>
+					<input type="password" id="password" name="password">
+				</div>
+				<div class="form-group">
+					<label>
+						<input type="checkbox" name="registration">
+						Зарегистрироваться
+					</label>
+				</div>			
+				<div class="form-group form-group-button no-margin-bottom">
+					<input type="submit" value="Войти">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

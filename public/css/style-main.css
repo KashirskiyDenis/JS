@@ -1,0 +1,119 @@
+﻿/* Стили элементов по умолчанию */
+html {
+	font-size: 10px;
+	}
+body {
+	margin: 0px;
+    font-family: Arial;
+}
+h1, h2, h3, h4, h5 {
+	margin: 5px 0px;
+	font-weight: normal;
+}
+h1 {
+	font-size: 8rem;
+}
+h2 {
+	font-size: 4rem;
+}
+h3 {
+	font-size: 3.5rem;
+}
+h4 {
+	font-size: 3rem;
+}
+h5 {
+	font-size: 2.5rem;
+}
+p {
+	font-size: 2rem;
+}
+a {
+	text-decoration: none;
+}
+a:visited {
+	color: #f87c48;
+}
+a:hover {
+	color: #03a9f4;
+}
+a:hover > span {
+	color: #03a9f4;
+}
+a:focus {
+	outline-style: none;
+	color: #03a9f4;
+}
+
+/* Блоки на странице */
+.logotype {
+	display: inline-block;
+    margin: 10px 0px;
+    font-stretch: condensed;
+    color: #5a5a5a;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+}
+.container {
+	width: 85%;
+	margin: 0 auto;
+}
+.current-page {
+	color: #03a9f4;
+}
+.current-page > span {
+	color: #03a9f4;
+}
+.list-projects {
+	list-style-type: none;
+	font-size: 2rem;
+}
+.project-item {
+	margin: 10px 5px;
+}
+.page-footer .container {
+	border-top: 1px dotted #a5a5a5;
+	padding-top: 10px;
+	font-size: 1.5rem;
+	text-align: center;
+	height: 30px;
+}
+
+/* Навигация проекта */
+.project-navigation {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.navigation-menu {
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
+	font-size: 2rem;
+}
+.navigation-menu-item {
+	display: inline-block;
+}
+.navigation-menu-item a {
+	display: block;
+	padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+}
+
+/* Дополнительные стили */
+.no-select {
+	-ms-user-select: none; 
+    -moz-user-select: none; 
+    -webkit-user-select: none; 
+    user-select: none;	
+}
+.disable-scroll {
+	overflow: hidden;
+}
+.no-margin-bottom {
+	margin-bottom: 0px!important;
+}
+.visible {
+	display: block!important;
+}

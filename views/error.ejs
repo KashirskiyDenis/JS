@@ -1,0 +1,6 @@
+<% layout("layout/page-project") -%>
+<% block("title", "Ошибка") -%>
+<% block("navigation", "player") -%>
+
+<h2>Ошибка - <%= error.status %></h2>
+<p class="text"><%= error.message %></p>

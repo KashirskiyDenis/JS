@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title><%= blocks.title %></title>
+		<%- partial("../partials/head-main") -%>
+		<%- partial("../partials/head-player") -%>
+		<%- scripts -%>
+		<%- stylesheets -%>
+	</head>
+	<body>
+		<header class="page-header">
+			<div class="container">
+				<a href="/">
+					<h1 class="logotype">Вместо header`а</h1>
+				</a>
+				<% if (blocks.navigation !== undefined) { %>
+					<%- partial("../partials/navigation/" + blocks.navigation) -%>
+				<% } %>
+			</div>
+		</header>
+		<main>
+			<div class="container">
+				<%- body -%>
+				</div>
+		</main>
+		<footer class="page-footer">
+			<div class="container">
+				<%- partial("../partials/footer") -%>
+			</div>
+		</footer>
+	</body>
+</html>

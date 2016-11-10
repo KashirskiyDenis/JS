@@ -1,0 +1,17 @@
+{
+	"port" : "8080",
+	"path-tmp" : "public/tmp/",
+	"path-music" : "./public/music/",
+	"mongoose" : {
+		"uri" : "mongodb://localhost/projects"
+	},
+	"session" : {
+		"secret" : "projectsPlayer",
+		"key" : "sid",
+		"cookie" : {
+			"path" : "/",
+			"httpOnly" : true,
+			"maxAge" : null
+		}
+	}
+}

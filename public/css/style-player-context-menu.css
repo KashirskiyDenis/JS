@@ -1,0 +1,41 @@
+﻿#context-menu {
+	width: 170px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	background-color: #fff;
+	display: none;
+	
+	top: 30%;
+	left: 10px;
+}
+
+#context-menu .list-item {
+	border-left: 0px;
+	border-right: 0xp;
+}
+#context-menu .list-item:first-child {
+	border-top: 0px;
+}
+#context-menu .list-item:last-child {
+	border-bottom: 0px;
+}
+
+.background {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background-color: rgba(0, 0, 0, 0.5);
+	
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal {
+	background-color: #fff;
+	width: calc(50% - 30px);
+	padding: 15px;
+}

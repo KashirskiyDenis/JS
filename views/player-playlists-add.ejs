@@ -1,0 +1,54 @@
+<% layout("layout/page-project") -%>
+<% block("title", "Музыкальный проигрыватель - добавление плейлистов") -%>
+<% block("navigation", "player") -%>
+<% block("current", "/player/playlists") -%>
+<% stylesheet("/css/style-player-add.css") -%>
+<% stylesheet("/css/style-player-form.css") -%>
+<% stylesheet("/css/style-player-playlist-change.css") -%>
+<% stylesheet("/css/style-player-context-menu.css") -%>
+<% script("/js/script-player-playlist-add.js") -%>
+<% script("/js/script-player-context-menu.js") -%>
+
+<h2>Управление персональными плейлистами</h2>
+<div class="player-background">
+	<div class="player">
+		<div>
+			<form id="form-playlist-work" class="player-add-form">
+				<p class="text">Выберите плейлист для изменения или добавьте новый </p>
+				<div class="form-group form-group-indents">
+					<input id="idPlaylist" type="hidden" name="idPlaylist">
+				</div>
+				<div class="form-group">
+					<label>Название плейлиста</label>
+					<input id="title" type="text" name="title" required>
+				</div>
+				<div class="form-group">
+					<label>
+						<input type="checkbox" name="newPlaylist">
+						Новый
+					</label>
+				</div>
+				<div class="form-group form-group-button no-margin-bottom">
+					<input id="delete" type="button" value="Удалить">
+					<input id="upsert" type="button" value="Внести данные">
+				</div>
+			</form>
+		</div>
+		<div id="playlists" class="list">
+			<% if (playlists.length === 0) { %>
+				<p class="text">Список Ваших плейлистов пуст.</p>
+			<% } else {
+				playlists.forEach(playlist => { %>
+					<div id="<%= playlist._id %>" class="list-item" data-id-playlist="<%= playlist._id %>">
+						<p class="text"><%= playlist.title %></p>
+						<p class="text light">Композиций: <%= playlist.songs.length %></p>
+					</div>
+			<%	});
+			} %>
+		</div>
+		<div id="songs-in-playlist">
+			<p class="text">Вы не выбрали плейлист или он пуст.</p>
+		</div>
+	</div>
+</div>
+<%- partial("partials/context-menu-player") %>

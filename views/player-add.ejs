@@ -1,0 +1,64 @@
+<% layout("layout/page-project") -%>
+<% block("title", "Музыкальный проигрыватель - добавление композиций") -%>
+<% block("navigation", "player") -%>
+<% block("current", "/player/add") -%>
+<% stylesheet("/css/style-player-add.css") -%>
+<% stylesheet("/css/style-player-form.css") -%>
+<% script("/js/script-player-add.js") -%>
+<% // script("/js/id3.min.js") -%>
+<% // script("/js/otherID3.js") -%>
+
+<h2>Добавление композиций</h2>
+<div class="player-background">
+	<div class="player">
+		<div>
+			<form id="form-send-files" class="player-add-form" enctype="multipart/form-data">
+				<p class="text">Переместите файлы в область с права или выберите при помощи соответствующего диалогового окна.</p>
+				<!--
+				<div class="form-group">
+					<label>Исполнитель</label>
+					<input id="singer" type="text" name="singer">
+				</div>
+				<div class="form-group">
+					<label>Название альбома</label>
+					<input type="text" name="album">
+				</div>
+				<div class="form-group">
+					<label>Год</label>
+					<input type="number" name="year" min="0" max="2016">
+				</div>
+				<div class="form-group">
+					<label>Жанр</label>
+					<select class="select-input" name="genre">
+						<option>Классическая музыка</option>
+						<option>Популярная музыка</option>
+					</select>
+				</div>
+				-->
+				<div class="form-group">
+					<label role="button" class="add-files">
+						<input type="file" name="files" multiple accept="audio/mp3">
+						Выверите файлы
+					</label>
+				</div>
+				<!--
+				<div class="form-group">
+					<label>
+						<input type="checkbox" name="allFiles">
+						Ко всем композициям
+					</label>
+				</div>
+				-->
+				<div class="form-group form-group-button no-margin-bottom">
+					<!--
+					<input type="button" value="Применить">
+					-->
+					<input id="submit" type="button" value="Загрузить">
+				</div>
+			</form>
+		</div>
+		<div id="dropzone" class="list-composition">
+			<p class="text">Переместите файлы сюда и загрузка начнется автоматически.</p>
+		</div>
+	</div>
+</div>
